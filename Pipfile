@@ -17,6 +17,7 @@ flask-session = "*"
 flask-wtf = "*"
 flask-mongoengine = "*"
 flask-script = "*"
+bootstrap-flask = "*"
 
 [dev-packages]
 

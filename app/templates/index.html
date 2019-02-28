@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Index</h1>
+<ul>
+    <li><a href="{{ url_for('auth.login') }}">登录</a></li>
+    <li><a href="{{ url_for('auth.dashboard') }}">公告板</a></li>
+    <li><a href="{{ url_for('admin.index') }}">后台管理</a></li>
+</ul>
+{% endblock %}

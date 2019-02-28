@@ -7,11 +7,14 @@ from config import DevelopmentConfig
 from flask import Flask
 from flask_login import LoginManager
 from flask_mongoengine import MongoEngine
+from flask_bootstrap import Bootstrap
 
 db = MongoEngine()
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'  # 访问需要已登录才能访问的地址时，调用的 登录页面函数 或 其他任何函数
+login_manager.login_message = '请登录后操作'
+bootstrap = Bootstrap()
 
 
 def create_app():
@@ -25,6 +28,7 @@ def create_app():
         Session(app)
     db.init_app(app)
     login_manager.init_app(app)
+    bootstrap.init_app(app)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint, static_folder='static')
